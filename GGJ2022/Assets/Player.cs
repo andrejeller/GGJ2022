@@ -22,7 +22,7 @@ public class Player: MonoBehaviour {
 
         Vector3 dir = Vector3.zero;
         dir.x = Input.acceleration.x * testeS;
-        // dir.x = Input.GetAxis("Horizontal") * testeS;
+        dir.x = Input.GetAxis("Horizontal") * testeS;
         myBody.velocity = new Vector2(dir.x, myBody.velocity.y);
         
         if (Input.GetKeyDown(KeyCode.Space)) {
