@@ -14,6 +14,10 @@ public class GamePlay : MonoBehaviour {
 
     void Update() {
         
+        if (Input.GetKeyDown(KeyCode.LeftControl)) {
+            TrocarFundoDeLado();
+        }
+
     }
 
 
