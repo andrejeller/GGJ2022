@@ -10,7 +10,7 @@ public class GamePlay : MonoBehaviour {
 
     void Start() {
         FundoPreto.transform.position = new Vector2(6.5f * ladoFundoPreto, 0.0f);
-        Seta.transform.position = new Vector2(2.6f, 0.0f);
+        Seta.transform.position = new Vector2(0.0f, 0.0f);
     }
 
     void Update() {
