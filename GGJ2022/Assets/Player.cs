@@ -21,8 +21,15 @@ public class Player: MonoBehaviour {
     void Update() {
 
         Vector3 dir = Vector3.zero;
+
+        // #if UNITY_ANDROID
+        // #elif UNITY_EDITOR
+        // #endif
+        
         dir.x = Input.acceleration.x * testeS;
-        dir.x = Input.GetAxis("Horizontal") * testeS;
+        // dir.x = Input.GetAxis("Horizontal") * testeS;
+        
+
         myBody.velocity = new Vector2(dir.x, myBody.velocity.y);
         
         if (Input.GetKeyDown(KeyCode.Space)) {
