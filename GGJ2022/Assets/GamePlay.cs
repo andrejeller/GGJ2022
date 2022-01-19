@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class GamePlay : MonoBehaviour {
 
@@ -12,16 +13,24 @@ public class GamePlay : MonoBehaviour {
         else Destroy(this);
     }
 
+
+    private float initialTime, myTime;
+    public TextMeshProUGUI scoreText;
+
     public GameObject FundoPreto, Seta;
     private int ladoFundoPreto = -1;
 
     void Start() {
         FundoPreto.transform.position = new Vector2(6.5f * ladoFundoPreto, 0.0f);
         Seta.transform.position = new Vector2(0.0f, 0.0f);
+        initialTime = Time.time;
     }
 
     void Update() {
-        
+
+        myTime = Time.time - initialTime;
+        scoreText.text = myTime.ToString("00:00"); 
+
         if (Input.GetKeyDown(KeyCode.LeftControl)) {
             TrocarFundoDeLado();
         }
@@ -43,5 +52,20 @@ public class GamePlay : MonoBehaviour {
 
     public void FimDeJogo() {
         Debug.Log("Fim!");
+        CheckScores();
+
+
     }
+
+    private void CheckScores() {
+        float bestTime = PlayerPrefs.GetFloat("bestTime");
+
+        if (myTime > bestTime) {
+            bestTime = myTime;
+            PlayerPrefs.SetFloat("bestTime", bestTime);
+            PlayerPrefs.Save();
+        }
+
+    }
+
 }
