@@ -5,6 +5,13 @@ using DG.Tweening;
 
 public class GamePlay : MonoBehaviour {
 
+
+    public static GamePlay instance;
+    private void Awake() {
+        if (instance == null) instance = this;
+        else Destroy(this);
+    }
+
     public GameObject FundoPreto, Seta;
     private int ladoFundoPreto = -1;
 
@@ -31,5 +38,10 @@ public class GamePlay : MonoBehaviour {
         FundoPreto.transform.DOMoveX(goTo, 0.5f);
         Seta.transform.DOLocalMoveX(seta_goTo, 0.6f);
 
+    }
+
+
+    public void FimDeJogo() {
+        Debug.Log("Fim!");
     }
 }
