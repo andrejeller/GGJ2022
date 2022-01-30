@@ -26,9 +26,10 @@ public class GameOver: MonoBehaviour {
 
 
     private void GetAndUpdateScores() {
-        
-        float best = PlayerPrefs.GetFloat("best");
-        float score = PlayerPrefs.GetFloat("score");
+        float best = 0.0f;
+        float score = 0.0f;
+        best = PlayerPrefs.GetFloat("best");
+        score = PlayerPrefs.GetFloat("score");
 
         if (score > best) {
             best = score;
@@ -36,8 +37,8 @@ public class GameOver: MonoBehaviour {
             PlayerPrefs.Save();
         }
 
-        txtBest.text = best.ToString();
-        txtScore.text = score.ToString();
+        txtBest.text = best.ToString("00:00");
+        txtScore.text = score.ToString("00:00");
 
     }
 

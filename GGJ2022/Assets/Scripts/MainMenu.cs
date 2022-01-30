@@ -24,6 +24,8 @@ public class MainMenu: MonoBehaviour {
         PlataformaPreta.transform.localScale = Vector2.zero;
         PlataformaBranca.transform.localScale = Vector2.zero;
 
+        
+
         StartCoroutine(AbrirMenu());
     }
 
