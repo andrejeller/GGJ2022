@@ -7247,6 +7247,7 @@ Transform:
   - {fileID: 1534526838}
   - {fileID: 1124818355}
   - {fileID: 1720476782}
+  - {fileID: 1874321857}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7301,6 +7302,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testeS: 80
   testeJ: 50
+  groundcheck: {fileID: 1874321857}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!1 &1030039804
 GameObject:
   m_ObjectHideFlags: 0
@@ -11520,7 +11525,7 @@ GameObject:
   - component: {fileID: 1571214609}
   - component: {fileID: 1571214611}
   - component: {fileID: 1571214610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chao_Preto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13806,6 +13811,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!1 &1874321856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1874321857}
+  m_Layer: 11
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1874321857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874321856}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.248, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1018735983}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1888657985
 GameObject:
   m_ObjectHideFlags: 0
@@ -13817,7 +13852,7 @@ GameObject:
   - component: {fileID: 1888657986}
   - component: {fileID: 1888657988}
   - component: {fileID: 1888657987}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chao_Branco
   m_TagString: Untagged
   m_Icon: {fileID: 0}

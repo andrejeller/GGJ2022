@@ -12,10 +12,13 @@ public class Player: MonoBehaviour {
     private Rigidbody2D myBody;
     //private float speed = testeS;
     //private float jumpForce = testeJ;
+    [Space]
+    public Transform groundcheck;
+    public LayerMask whatIsGround;
+    private bool jump, doubleJump;
 
     void Start() {
         myBody = GetComponent<Rigidbody2D>();
-
     }
 
     void Update() {
@@ -31,15 +34,53 @@ public class Player: MonoBehaviour {
         
 
         myBody.velocity = new Vector2(dir.x, myBody.velocity.y);
-        
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Jump();
+
+        if (AmIGrounded()) {
+            jump = false;
+            doubleJump = false;
         }
 
+        if (Input.GetKeyDown(KeyCode.Space)) {
+           Jump();
+        }
+
+        
 
     }
 
-    public void Jump() {
+    /*public void Jump1() {
         myBody.AddForce(Vector2.up * testeJ, ForceMode2D.Impulse);
+    }*/
+
+    private bool inFirstJump() {
+        return (jump && !doubleJump);
+    }
+
+    public void Jump() {
+
+        float forceToAdd = 0;
+        if (AmIGrounded() && !inFirstJump()) {
+            jump = true;
+            //isGrounded = false;
+            forceToAdd = testeJ;
+        } else if (inFirstJump()) {
+            // doubleJump = true;
+            // forceToAdd = testeJ / 2;
+        }
+
+        myBody.AddForce(Vector2.up * forceToAdd, ForceMode2D.Impulse);
+    }
+
+    private bool AmIGrounded() {
+        if (myBody.velocity.y <= 0) {
+            Collider2D[] coliders = Physics2D.OverlapCircleAll(groundcheck.position, 0.1f, whatIsGround);
+            for (int i = 0; i < coliders.Length; i++) {
+                if (coliders[i].gameObject != gameObject)
+                    return true;
+            }
+
+        }
+
+        return false;
     }
 }
