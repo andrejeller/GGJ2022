@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.SocialPlatforms;
 
 public class MainMenu: MonoBehaviour {
 
@@ -20,6 +21,11 @@ public class MainMenu: MonoBehaviour {
     public AudioClip NextDown;
     public AudioClip Click;
 
+
+    // Google
+    private bool mWaitingForAuth = false;
+    private string mStatusText = "Ready.";
+
     void Start() {
         BG_Preto.transform.localPosition = new Vector2(-25.0f, BG_Preto.transform.localPosition.y);
         
@@ -31,7 +37,44 @@ public class MainMenu: MonoBehaviour {
         PlataformaPreta.transform.localScale = Vector2.zero;
         PlataformaBranca.transform.localScale = Vector2.zero;
 
-        
+
+        // Select the Google Play Games platform as our social platform implementation
+        GooglePlayGames.PlayGamesPlatform.Activate();
+
+
+        if (mWaitingForAuth) {
+            return;
+        }
+
+        // string buttonLabel;
+
+
+        if (Social.localUser.authenticated) {
+            Debug.Log("Sign Out");
+            mStatusText = "Ready";
+        } else {
+            Debug.Log("Authenticate");
+        }
+
+
+        if (!Social.localUser.authenticated) {
+            // Authenticate
+            mWaitingForAuth = true;
+            Debug.Log("Authenticating...");
+            Social.localUser.Authenticate((bool success) =>
+            {
+                mWaitingForAuth = false;
+                if (success) {
+                    mStatusText = "Welcome " + Social.localUser.userName;
+                } else {
+                    mStatusText = "Authentication failed.";
+                }
+            });
+        } else {
+            // Sign out!
+            mStatusText = "Signing out.";
+            ((GooglePlayGames.PlayGamesPlatform)Social.Active).SignOut();
+        }
 
         StartCoroutine(AbrirMenu());
     }
