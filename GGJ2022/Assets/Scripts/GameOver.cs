@@ -39,7 +39,7 @@ public class GameOver: MonoBehaviour {
 
         if (score < best) {
             best = score;
-            PlayGamesScript.AddScoreToLeaderboard(GPGSIds.leaderboard_ranking_global, score);
+            PlayGamesScript.AddScoreToLeaderboard(GPGSIds.leaderboard_ranking_global, (int) score);
             PlayerPrefs.SetFloat("best", best);
             PlayerPrefs.Save();
         }

@@ -32,6 +32,7 @@ public class GamePlay: MonoBehaviour {
     public AudioClip ColetarCor;
     public AudioClip NextUp;
     public AudioClip NextDown;
+    public AudioClip Jump;
     public ControlaMusicas controle;
     
 
@@ -74,14 +75,17 @@ public class GamePlay: MonoBehaviour {
 
     }
 
+    public void SomPulo() {
+        sound.PlayOneShot(Jump, 0.7f);
+    }
 
     public void FimDeJogo() {
         Debug.Log("Fim!");
         PlayerPrefs.SetFloat("score", myTime);
-        StartCoroutine(FimDeJogoAnimacao());
+        StartCoroutine(FimDeJogoAnimacao(2));
     }
 
-    private IEnumerator FimDeJogoAnimacao() {
+    private IEnumerator FimDeJogoAnimacao(int cena) {
         yield return null;
 
         sound.PlayOneShot(NextUp, 1.0f);
@@ -92,7 +96,7 @@ public class GamePlay: MonoBehaviour {
         fadeGameOver_Preto.transform.DOMoveX(-Screen.width / 2, 0.3f);
         // fadeGameOver_Branco.transform.DOMoveX(-Screen.width / 2, 0.3f);
         yield return new WaitForSeconds(0.1f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(cena);
 
     }
 
@@ -100,5 +104,8 @@ public class GamePlay: MonoBehaviour {
         sound.PlayOneShot(ColetarCor, 1.0f);
     }
 
-
+    public void VoltarAoMenu() {
+        // SceneManager.LoadScene(0);
+        StartCoroutine(FimDeJogoAnimacao(0));
+    }
 }

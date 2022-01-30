@@ -63,17 +63,19 @@ public class Player: MonoBehaviour {
             jump = true;
             //isGrounded = false;
             forceToAdd = testeJ;
+            GamePlay.instance.SomPulo();
         } else if (inFirstJump()) {
-            // doubleJump = true;
-            // forceToAdd = testeJ / 2;
+            doubleJump = true;
+            forceToAdd = testeJ / 2;
+            GamePlay.instance.SomPulo();
         }
-
+        
         myBody.AddForce(Vector2.up * forceToAdd, ForceMode2D.Impulse);
     }
 
     private bool AmIGrounded() {
         if (myBody.velocity.y <= 0) {
-            Collider2D[] coliders = Physics2D.OverlapCircleAll(groundcheck.position, 0.1f, whatIsGround);
+            Collider2D[] coliders = Physics2D.OverlapCircleAll(groundcheck.position, 0.25f, whatIsGround);
             for (int i = 0; i < coliders.Length; i++) {
                 if (coliders[i].gameObject != gameObject)
                     return true;

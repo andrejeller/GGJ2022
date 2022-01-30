@@ -4,7 +4,7 @@ using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 
-public class PlayGamesScript : MonoBehaviour {
+public class PlayGamesScript: MonoBehaviour {
 
     void Start() {
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
