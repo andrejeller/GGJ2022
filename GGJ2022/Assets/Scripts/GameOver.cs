@@ -32,12 +32,12 @@ public class GameOver: MonoBehaviour {
 
 
     private void GetAndUpdateScores() {
-        float best = 0.0f;
+        float best = 10000.0f;
         float score = 0.0f;
         best = PlayerPrefs.GetFloat("best");
         score = PlayerPrefs.GetFloat("score");
 
-        if (score > best) {
+        if (score < best) {
             best = score;
             PlayerPrefs.SetFloat("best", best);
             PlayerPrefs.Save();
