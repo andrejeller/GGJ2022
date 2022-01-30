@@ -14,14 +14,18 @@ public class MainMenu: MonoBehaviour {
     public GameObject PainelInfo;
 
     void Start() {
+        BG_Preto.transform.localPosition = new Vector2(-25.0f, BG_Preto.transform.localPosition.y);
+        
+        Player.transform.localScale = Vector2.zero;
+        btn_info.transform.localScale = Vector2.zero;
+        btn_play.transform.localScale = Vector2.zero;
+        btn_ranking.transform.localScale = Vector2.zero;
+        EscritoPreto.transform.localScale = Vector2.zero;
+        PlataformaPreta.transform.localScale = Vector2.zero;
+        PlataformaBranca.transform.localScale = Vector2.zero;
 
+        StartCoroutine(AbrirMenu());
     }
-
-    void Update() {
-
-    }
-
-
 
     // Botoes
     public void Info() {
@@ -64,6 +68,34 @@ public class MainMenu: MonoBehaviour {
         qualPainel.transform.DOScale(0.0f, 0.2f);
     }
 
+
+    private IEnumerator AbrirMenu() {
+        yield return null;
+
+        StartCoroutine(AbrirPainel(Player));
+        yield return new WaitForSeconds(0.1f);
+
+        BG_Preto.transform.DOMoveX(-14.0f, 0.3f); 
+        yield return new WaitForSeconds(0.3f);
+
+        BG_Preto.transform.DOMoveX(-17.8f, 0.3f);
+        yield return new WaitForSeconds(0.1f);
+
+        
+        StartCoroutine(AbrirPainel(EscritoPreto));
+        StartCoroutine(AbrirPainel(PlataformaPreta)); //0.05
+        StartCoroutine(AbrirPainel(PlataformaBranca));
+        StartCoroutine(AbrirPainel(btn_info));
+        StartCoroutine(AbrirPainel(btn_play));
+        StartCoroutine(AbrirPainel(btn_ranking));
+
+        yield return new WaitForSeconds(0.3f);
+        
+        
+
+    }
+
+
     private IEnumerator PlayGameAnimation() {
         yield return null;
 
@@ -81,7 +113,7 @@ public class MainMenu: MonoBehaviour {
         btn_info.SetActive(false);
 
         yield return new WaitForSeconds(0.05f);
-        PlataformaBranca.SetActive(false);
+        // PlataformaBranca.SetActive(false);
         Player.SetActive(false);
         
         btn_play.SetActive(false);

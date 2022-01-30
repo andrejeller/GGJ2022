@@ -475,7 +475,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a625a139e83d8e548a9b8c96dcec3c36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b205de7065aad2641ad4cf650188594e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1086,7 +1086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487998530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.8, y: 0, z: 1}
+  m_LocalPosition: {x: -17.6, y: 0, z: 1}
   m_LocalScale: {x: 5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1104999776}
@@ -2037,6 +2037,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!1 &746548715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 746548716}
+  m_Layer: 0
+  m_Name: PlayerPH
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &746548716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746548715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.764, y: 0.508, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1018735983}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &760174996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,15 +2653,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018735982}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.764, y: 0.508, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 1534526838}
   - {fileID: 1124818355}
   - {fileID: 1720476782}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 746548716}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1104819287
 GameObject:
@@ -4539,9 +4570,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BG_Preto: {fileID: 487998530}
   EscritoPreto: {fileID: 203485442}
-  PlataformaPreta: {fileID: 605217772}
-  PlataformaBranca: {fileID: 1707727885}
-  Player: {fileID: 1018735982}
+  PlataformaPreta: {fileID: 1387536185}
+  PlataformaBranca: {fileID: 1942458101}
+  Player: {fileID: 746548715}
   btn_play: {fileID: 493592679}
   btn_info: {fileID: 1714928140}
   btn_ranking: {fileID: 2011841867}
