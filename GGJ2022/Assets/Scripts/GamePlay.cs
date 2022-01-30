@@ -24,6 +24,15 @@ public class GamePlay: MonoBehaviour {
     [Space]
     public GameObject fadeGameOver_Preto, fadeGameOver_Branco;
 
+    [Space]
+    [Header("Sounds")]
+    public AudioSource sound;
+    public AudioClip ChangeColor;
+    public AudioClip Click;
+    public AudioClip ColetarCor;
+    public AudioClip NextUp;
+    public AudioClip NextDown;
+
     void Start() {
         FundoPreto.transform.position = new Vector2(6.5f * ladoFundoPreto, 0.0f);
         Seta.transform.position = new Vector2(0.0f, 0.0f);
@@ -56,6 +65,7 @@ public class GamePlay: MonoBehaviour {
         ladoFundoPreto *= -1;
         float goTo = 6.5f * ladoFundoPreto;
 
+        sound.PlayOneShot(ChangeColor, 1.0f);
         FundoPreto.transform.DOMoveX(goTo, 0.5f);
         Seta.transform.DOLocalMoveX(seta_goTo, 0.6f);
 
@@ -71,7 +81,7 @@ public class GamePlay: MonoBehaviour {
     private IEnumerator FimDeJogoAnimacao() {
         yield return null;
 
-
+        sound.PlayOneShot(NextUp, 1.0f);
         fadeGameOver_Preto.transform.DOMoveX(Screen.width / 2, 0.3f);
         fadeGameOver_Branco.transform.DOMoveX(Screen.width / 2, 0.3f);
         yield return new WaitForSeconds(0.3f);
@@ -82,5 +92,10 @@ public class GamePlay: MonoBehaviour {
         SceneManager.LoadScene(2);
 
     }
+
+    public void SomColetarCor() {
+        sound.PlayOneShot(ColetarCor, 1.0f);
+    }
+
 
 }

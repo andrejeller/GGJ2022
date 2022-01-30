@@ -11,9 +11,15 @@ public class GameOver: MonoBehaviour {
     public GameObject[] objectsToHide;
     public GameObject BG_Preto;
 
+    [Space]
+    [Header("Sounds")]
+    public AudioSource sound;
+    public AudioClip NextUp;
+    public AudioClip NextDown;
 
     void Start() {
 
+        sound.PlayOneShot(NextDown, 1.0f);
         BG_Preto.transform.localPosition = new Vector2(-25.0f, BG_Preto.transform.localPosition.y);
         
         for (int i = 0; i < objectsToHide.Length; i++) {
@@ -91,7 +97,7 @@ public class GameOver: MonoBehaviour {
     private IEnumerator VoltarAoMenuAnim() {
         yield return null;
 
-        
+        sound.PlayOneShot(NextUp, 1.0f);
 
         for (int i = 0; i < objectsToHide.Length; i++) {
             StartCoroutine(Hide(objectsToHide[i]));

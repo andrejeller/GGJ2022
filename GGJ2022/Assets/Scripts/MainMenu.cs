@@ -13,6 +13,13 @@ public class MainMenu: MonoBehaviour {
 
     public GameObject PainelInfo;
 
+    [Space]
+    [Header("Sounds")]
+    public AudioSource sound;
+    public AudioClip NextUp;
+    public AudioClip NextDown;
+    public AudioClip Click;
+
     void Start() {
         BG_Preto.transform.localPosition = new Vector2(-25.0f, BG_Preto.transform.localPosition.y);
         
@@ -48,10 +55,12 @@ public class MainMenu: MonoBehaviour {
 
     public void AbrirPainelInfo() {
         StartCoroutine(AbrirPainel(PainelInfo));
+        sound.PlayOneShot(Click, 1.0f);
     }
 
     public void FecharPainelInfo() {
         StartCoroutine(FecharPainel(PainelInfo));
+        sound.PlayOneShot(Click, 1.0f);
     }
 
 
@@ -74,6 +83,7 @@ public class MainMenu: MonoBehaviour {
     private IEnumerator AbrirMenu() {
         yield return null;
 
+        sound.PlayOneShot(NextUp, 1.0f);
         StartCoroutine(AbrirPainel(Player));
         yield return new WaitForSeconds(0.1f);
 
@@ -81,6 +91,7 @@ public class MainMenu: MonoBehaviour {
         yield return new WaitForSeconds(0.3f);
 
         BG_Preto.transform.DOMoveX(-17.8f, 0.3f);
+        sound.PlayOneShot(NextDown, 1.0f);
         yield return new WaitForSeconds(0.1f);
 
         
@@ -90,7 +101,7 @@ public class MainMenu: MonoBehaviour {
         StartCoroutine(AbrirPainel(btn_info));
         StartCoroutine(AbrirPainel(btn_play));
         StartCoroutine(AbrirPainel(btn_ranking));
-
+        
         yield return new WaitForSeconds(0.3f);
         
         
@@ -102,18 +113,20 @@ public class MainMenu: MonoBehaviour {
         yield return null;
 
         BG_Preto.transform.DOMoveX(-4.0f, 0.3f);
+        sound.PlayOneShot(NextDown, 1.0f);
         yield return new WaitForSeconds(0.3f);
 
         EscritoPreto.SetActive(false);
         PlataformaPreta.SetActive(false);
         BG_Preto.transform.DOMoveX(-25.0f, 0.3f);
 
+        
         yield return new WaitForSeconds(0.05f);
         btn_ranking.SetActive(false);
 
         yield return new WaitForSeconds(0.05f);
         btn_info.SetActive(false);
-
+        sound.PlayOneShot(NextUp, 1.0f);
         yield return new WaitForSeconds(0.05f);
         // PlataformaBranca.SetActive(false);
         Player.SetActive(false);
