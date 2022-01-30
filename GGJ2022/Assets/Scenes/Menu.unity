@@ -1551,8 +1551,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Este jogo foi desenvolvido durante a GLOBAL GAME JAM 2022 com o tema \"Duality\".\r\n\r\nJogo
     desenvolvido por: ANDR\xC9 JELLER\n\nM\xFAsica e efeitos sonoros por: Gabriel
-    Oliveira; Caio Galani; Outro\n\r\nEstando sem artista, este jogo apenas foi poss\xEDvel
-    utilizando imagens de Game Developer Studio"
+    Oliveira; Caio Galani; Luis Felipe\n\r\nEstando sem artista, este jogo apenas
+    foi poss\xEDvel utilizando imagens de Game Developer Studio"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
