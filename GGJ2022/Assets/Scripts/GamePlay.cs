@@ -32,6 +32,8 @@ public class GamePlay: MonoBehaviour {
     public AudioClip ColetarCor;
     public AudioClip NextUp;
     public AudioClip NextDown;
+    public ControlaMusicas controle;
+    
 
     void Start() {
         FundoPreto.transform.position = new Vector2(6.5f * ladoFundoPreto, 0.0f);
@@ -68,6 +70,7 @@ public class GamePlay: MonoBehaviour {
         sound.PlayOneShot(ChangeColor, 1.0f);
         FundoPreto.transform.DOMoveX(goTo, 0.5f);
         Seta.transform.DOLocalMoveX(seta_goTo, 0.6f);
+        controle.TrocarVolume();
 
     }
 

@@ -38,11 +38,11 @@ public class MainMenu: MonoBehaviour {
 
     // Botoes
     public void Info() {
-
+        sound.PlayOneShot(Click, 1.0f);
     }
 
     public void RankingGooglePlay() {
-
+        sound.PlayOneShot(Click, 1.0f);
     }
 
 
